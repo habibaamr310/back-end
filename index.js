@@ -8,12 +8,7 @@ const server = express();
 const http = require("http");
 const app = http.createServer((req, res) => { })
 server.use(
-  cors({
-    origin: "http://localhost:5000", // Or your frontend URL if different
-    methods: ["GET", "POST", "PUT", "DELETE"], // Include all needed methods
-    allowedHeaders: ["Content-Type", "Authorization"],
-    credentials: true, // If using cookies/sessions
-  })
+  cors()
 );
 server.use(express.json()); // For JSON bodies
 server.use(express.urlencoded({ extended: true })); // For form data
@@ -22,11 +17,7 @@ const DB = process.env.DB;
 
 const connectDB = async () => {
   try {
-    await mongoose.connect(DB, {
-      serverSelectionTimeoutMS: 5000, // 5s timeout
-      socketTimeoutMS: 45000, // 45s socket timeout
-      maxPoolSize: 10, // Control connection pool size
-    });
+    await mongoose.connect(DB);
     console.log("✅ MongoDB Connected");
   } catch (err) {
     console.error("❌ Connection Failed:", err.message);
