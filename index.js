@@ -5,8 +5,7 @@ const mongoose = require("mongoose");
 const cors = require("cors")
 const {router} = require("./routes/users")
 const server = express();
-const http = require("http");
-const app = http.createServer((req, res) => { })
+
 server.use(
   cors()
 );
@@ -36,9 +35,9 @@ connectDB();
 //   console.log("app running")
   
 // })
-module.exports = {
+module.exports = 
   server
-}
+
 
 // server.use((req,res)=>{})
 // const users = [
