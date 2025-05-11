@@ -40,11 +40,11 @@ server.use((err, req, res, next) => {
   res.status(500).json({ error: "Internal Server Error" });
 });
 
-
-server.listen(5000, () => {
-  console.log("app running")
-  connectDB(); 
-})
+connectDB(); 
+// server.listen(5000, () => {
+//   console.log("app running")
+  
+// })
 module.exports = {
   server
 }
